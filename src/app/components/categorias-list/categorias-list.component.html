@@ -1,0 +1,61 @@
+<div class="container mt-5">
+
+    <div class="row">
+
+        <div class="col-lg-5">
+
+            <h2 class="text-center mb-5">FORMULARIO</h2>
+
+            <form #form="ngForm">
+
+                <div class="form-group">
+                    <label for="nombreIn">Nombre:</label>
+                    <input class="form-control form-control-sm" type="text" required name="nombreIn"
+                        [(ngModel)]="categoria.nombre">
+                </div>
+
+
+                <div class="text-center">
+                    <button class="btn btn-info btn-block" [disabled]="form.invalid"
+                        (click)="guardar()">Guardar</button>
+                </div>
+            </form>
+
+
+        </div>
+        <!--DIV FORM-->
+
+
+        <div class="col-lg-7">
+
+            <h2 class="text-center mb-5">CATEGORIAS RESGISTRADAS</h2>
+
+            <table class="table table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let categoria of categorias ">
+                        <th scope="row">{{categoria.id}}</th>
+                        <td>{{categoria.nombre}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" (click)="editarTable(categoria)">Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" (click)="delete(categoria)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--DIV TABLA-->
+
+
+    </div>
+
+</div>

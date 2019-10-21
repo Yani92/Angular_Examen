@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+
+            <h1 class="text-center">Formulario</h1>
+
+            <form #form="ngForm">
+
+                <div class="form-group">
+                    <label for="nombreInd">Nombre</label>
+                    <input required class="form-control form-control-sm" type="text" name="nombreIn"
+                        [(ngModel)]="producto.nombre">
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="precioIn">Precio</label>
+                    <input required class="form-control form-control-sm" type="number" min="1" name="precioIn"
+                        [(ngModel)]="producto.precio">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="categoriaIn">Categoria</label>
+                    <select required class="custom-select custom-select-sm" name="categoriaIn"
+                        [(ngModel)]="producto.categoria">
+                        <option [value]="categoria" *ngFor="let categoria of categorias">
+                            {{categoria.nombre}}
+                        </option>
+                    </select>
+
+                </div>
+
+
+
+                <div class="text-center">
+                    <button class="btn btn-info" [disabled]="form.invalid" (click)="guardar()">Guardar</button>
+                </div>
+
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
